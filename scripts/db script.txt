@@ -1,0 +1,33 @@
+-- Esse projeto utiliza code first e migrations para realizar as operações de banco,
+-- caso não queria executar o migrations, siga os passos a seguir:
+
+-- 1 - Criar o banco de dados BLTesteGolDb
+create database BLTesteGolDb;
+GO
+
+-- 2 - Criar a tabela do projeto
+USE [BLTesteGolDb]
+GO
+
+/****** Object:  Table [dbo].[AirPlanes]    Script Date: 04/04/2019 13:24:41 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[AirPlanes](
+	[Id] [uniqueidentifier] NOT NULL,
+	[Modelo] [varchar](50) NOT NULL,
+	[QtdPassageiros] [int] NOT NULL,
+	[DataCriacao] [datetime2](7) NOT NULL,
+ CONSTRAINT [PK_AirPlanes] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+
+-- OBS: Para executar o projeto, alterar a ConnectionString do arquivo: 'appsettings.json' dentro da camada: 'Infra -> Data' no projeto: 'BL.TesteGol.Infra.Data.Airplane'.
